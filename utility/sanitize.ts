@@ -1,4 +1,3 @@
-// utils/sanitize.ts
 import { sanitize } from "isomorphic-dompurify";
 
 export const sanitizeHtml = (dirtyHtml: string): string => {

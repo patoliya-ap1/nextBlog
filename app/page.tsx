@@ -1,12 +1,12 @@
 import HomeBlog from "./components/HomeBlog";
-// import SanitizedContent from "./components/SanitizedContent";
+import SanitizedContent from "./components/SanitizedContent";
 export default function Home() {
-  // const userGeneratedContent = `<img src="x" onerror="alert('XSS Attack!')" <b>Hello</b>`;
+  const userGeneratedContent = `<img src="x" onerror="alert('XSS Attack!')" <b>Hello</b>`;
 
   return (
     <div>
       <HomeBlog />
-      {/* <SanitizedContent htmlContent={userGeneratedContent} /> */}
+      <SanitizedContent htmlContent={userGeneratedContent} />
     </div>
   );
 }

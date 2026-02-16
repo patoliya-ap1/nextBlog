@@ -4,6 +4,12 @@ import Link from "next/link";
 import { Fab } from "@mui/material";
 import AddIcon from "@mui/icons-material/Add";
 import LoadingMui from "@/app/muiComponent/LoadingMui";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "blogs details",
+  description: "blogs details for next-blog app",
+};
 
 interface Params {
   blogID: string;

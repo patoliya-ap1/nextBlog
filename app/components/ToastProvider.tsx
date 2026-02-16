@@ -5,10 +5,6 @@ import "react-toastify/dist/ReactToastify.css";
 
 export default function ToastProvider() {
   return (
-    <ToastContainer
-      position="top-center"
-      autoClose={3000}
-      theme="light"
-    />
+    <ToastContainer position="top-center" autoClose={3000} theme="light" />
   );
 }

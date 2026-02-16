@@ -4,10 +4,7 @@ import { fetcher } from "@/lib/fetcher";
 import useSWR from "swr";
 
 const Comments = ({ blogID }: { blogID: string }) => {
-  const { data, error, isLoading } = useSWR(
-    `/api/comments/${blogID}`,
-    fetcher,
-  );
+  const { data, error, isLoading } = useSWR(`/api/comments/${blogID}`, fetcher);
 
   if (isLoading) {
     return <p>loading comments...</p>;

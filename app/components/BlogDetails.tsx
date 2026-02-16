@@ -1,4 +1,3 @@
-
 import Image from "next/image";
 import RelatedPosts from "./RelatedPosts";
 interface Comment {
@@ -38,51 +37,49 @@ const BlogDetails = async ({ blogID }: { blogID: string }) => {
       </div>
 
       <div className="mt-12">
-  <h3 className="text-2xl font-semibold mb-8 border-b pb-3">
-    Comments ({blog.comments?.length || 0})
-  </h3>
+        <h3 className="text-2xl font-semibold mb-8 border-b pb-3">
+          Comments ({blog.comments?.length || 0})
+        </h3>
 
-  <div className="space-y-6">
-    {blog.comments?.map((comment:Comment) => (
-      <div
-        key={comment?.id}
-        className="flex gap-4 p-5 bg-gray-50 rounded-2xl border hover:shadow-md transition-all duration-300"
-      >
-        {/* Avatar */}
-        <div className="flex-shrink-0">
-          <div className="w-12 h-12 flex items-center justify-center rounded-full bg-gradient-to-br from-indigo-500 to-blue-600 text-white font-semibold text-lg shadow">
-            {comment?.name.charAt(0).toUpperCase()}
-          </div>
+        <div className="space-y-6">
+          {blog.comments?.map((comment: Comment) => (
+            <div
+              key={comment?.id}
+              className="flex gap-4 p-5 bg-gray-50 rounded-2xl border hover:shadow-md transition-all duration-300"
+            >
+              {/* Avatar */}
+              <div className="flex-shrink-0">
+                <div className="w-12 h-12 flex items-center justify-center rounded-full bg-gradient-to-br from-indigo-500 to-blue-600 text-white font-semibold text-lg shadow">
+                  {comment?.name.charAt(0).toUpperCase()}
+                </div>
+              </div>
+
+              {/* Comment Content */}
+              <div className="flex-1">
+                <div className="flex justify-between items-center mb-2">
+                  <p className="font-semibold text-gray-800 text-sm sm:text-base">
+                    {comment.name}
+                  </p>
+
+                  <span className="text-xs text-gray-500">
+                    {new Date(comment.createdAt).toLocaleDateString()}
+                  </span>
+                </div>
+
+                <p className="text-sm text-gray-600 leading-relaxed">
+                  {comment.commentText}
+                </p>
+              </div>
+            </div>
+          ))}
         </div>
 
-        {/* Comment Content */}
-        <div className="flex-1">
-          <div className="flex justify-between items-center mb-2">
-            <p className="font-semibold text-gray-800 text-sm sm:text-base">
-              {comment.name}
-            </p>
-
-            <span className="text-xs text-gray-500">
-              {new Date(comment.createdAt).toLocaleDateString()}
-            </span>
+        {blog.comments?.length === 0 && (
+          <div className="mt-6 text-center text-gray-500 text-sm">
+            No comments yet. Be the first to comment!
           </div>
-
-          <p className="text-sm text-gray-600 leading-relaxed">
-            {comment.commentText}
-          </p>
-        </div>
+        )}
       </div>
-    ))}
-  </div>
-
-  {blog.comments?.length === 0 && (
-    <div className="mt-6 text-center text-gray-500 text-sm">
-      No comments yet. Be the first to comment!
-    </div>
-  )}
-</div>
-
-
     </div>
   );
 };

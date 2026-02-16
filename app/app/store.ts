@@ -15,16 +15,11 @@ const isBrowser = typeof window !== "undefined";
 export const globalState = create<GlobalState>((set) => ({
   sidebarState: false,
   isLoggedIn: isBrowser ? !!Cookies.get("login") : false,
-  user: isBrowser
-    ? JSON.parse(localStorage.getItem("user") || '""')
-    : null,
+  user: isBrowser ? JSON.parse(localStorage.getItem("user") || '""') : null,
 
-  toggleSidebar: () =>
-    set((state) => ({ sidebarState: !state.sidebarState })),
+  toggleSidebar: () => set((state) => ({ sidebarState: !state.sidebarState })),
 
-  toggleLogin: (status) =>
-    set(() => ({ isLoggedIn: status })),
+  toggleLogin: (status) => set(() => ({ isLoggedIn: status })),
 
-  addUser: (userEmail) =>
-    set(() => ({ user: userEmail })),
+  addUser: (userEmail) => set(() => ({ user: userEmail })),
 }));

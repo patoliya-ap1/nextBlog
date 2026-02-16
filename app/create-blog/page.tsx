@@ -129,14 +129,20 @@ const CreateBlog = () => {
                 onChange={formik.handleChange}
                 onBlur={formik.handleBlur}
               >
-<MenuItem value="">Select Category</MenuItem>
+                <MenuItem value="">Select Category</MenuItem>
                 <MenuItem value="Technology">Technology</MenuItem>
                 <MenuItem value="Cooking">Cooking</MenuItem>
                 <MenuItem value="Travelling">Travelling</MenuItem>
                 <MenuItem value="Coding">Coding</MenuItem>
                 <MenuItem value="Trading">Trading</MenuItem>
               </Select>
-              <FormHelperText error={formik.touched.category && formik.errors.category ?true :false}>
+              <FormHelperText
+                error={
+                  formik.touched.category && formik.errors.category
+                    ? true
+                    : false
+                }
+              >
                 {formik.touched.category && formik.errors.category}
               </FormHelperText>
             </FormControl>

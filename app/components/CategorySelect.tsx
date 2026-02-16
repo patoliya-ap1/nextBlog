@@ -9,13 +9,7 @@ import {
 } from "@mui/material";
 import { Dispatch, SetStateAction } from "react";
 
-const categories = [
-  "Technology",
-  "Cooking",
-  "Travelling",
-  "Coding",
-  "Trading",
-];
+const categories = ["Technology", "Cooking", "Travelling", "Coding", "Trading"];
 
 interface CategorySelectProps {
   selectedCategory: string;
@@ -26,7 +20,6 @@ export default function CategorySelect({
   selectedCategory,
   setSelectedCategory,
 }: CategorySelectProps) {
-
   const handleChange = (event: SelectChangeEvent) => {
     setSelectedCategory(event.target.value);
   };

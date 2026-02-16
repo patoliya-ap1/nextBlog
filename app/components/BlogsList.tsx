@@ -1,4 +1,3 @@
-
 import BlogCard from "../components/BlogCard";
 
 interface Blog {
@@ -9,13 +8,21 @@ interface Blog {
   imgUrl: string;
 }
 
-const BlogsList = async ({ user,limit,category }: { user?: string |null,limit?:number |null,category?:string|null },) => {
+const BlogsList = async ({
+  user,
+  limit,
+  category,
+}: {
+  user?: string | null;
+  limit?: number | null;
+  category?: string | null;
+}) => {
   const response = await fetch(
     `${process.env.NEXT_PUBLIC_BACKEND_API}/posts${user ? `?user=${user}` : ""}${category ? `?category=${category}` : ""}`,
   );
   const blogs = await response.json();
 
-  const renderlogs = limit ? blogs.slice(0,limit) : blogs
+  const renderlogs = limit ? blogs.slice(0, limit) : blogs;
 
   if (renderlogs?.length === 0) {
     return (
@@ -25,7 +32,7 @@ const BlogsList = async ({ user,limit,category }: { user?: string |null,limit?:n
     );
   }
 
-  console.log({category})
+  console.log({ category });
 
   return (
     <div className="mb-20">

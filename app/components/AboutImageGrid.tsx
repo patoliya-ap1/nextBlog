@@ -5,8 +5,6 @@ export default function AboutImageGrid() {
     <section className="py-12">
       <div className="max-w-6xl mx-auto px-4">
         <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-          
-
           <div className="relative w-full h-64 rounded-2xl overflow-hidden shadow-lg">
             <Image
               src="/images/about1.jpg"
@@ -32,7 +30,6 @@ export default function AboutImageGrid() {
             />
           </div>
 
-
           <div className="relative w-full h-64 rounded-2xl overflow-hidden shadow-lg">
             <Image
               src="/images/about3.jpg"
@@ -44,7 +41,6 @@ export default function AboutImageGrid() {
                      33vw"
             />
           </div>
-
         </div>
       </div>
     </section>

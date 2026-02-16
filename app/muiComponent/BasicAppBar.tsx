@@ -49,6 +49,7 @@ export default function ButtonAppBar() {
   const handleLogout = async () => {
     const response = await fetch("/api/auth/logout", { method: "POST" });
     const data = await response.json();
+    console.log(data);
     handleClose();
     toggleLogin(false);
     router.replace("/login");

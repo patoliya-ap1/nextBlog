@@ -14,7 +14,6 @@ import {
 import Button from "@mui/material/Button";
 import ImageIcon from "@mui/icons-material/Image";
 import InsertLinkIcon from "@mui/icons-material/InsertLink";
-import Editor, { BtnBold, BtnItalic, Toolbar } from "react-simple-wysiwyg";
 import { useParams, useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 

@@ -7,7 +7,6 @@ import LoadingMui from "../muiComponent/LoadingMui";
 const DashboardPanel = () => {
   return (
     <div>
-      
       <h5>Blogs</h5>
       <Suspense fallback={<LoadingMui />}>
         <BlogsList user="john@gmail.com" />

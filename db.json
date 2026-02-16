@@ -369,27 +369,11 @@
       ]
     },
     {
-      "id": "6d50",
       "title": "The Browser Hates Surprises We often treat the browser like a canva",
       "body": "We often treat the browser like a canvas — a blank slate waiting for us to paint pixels. But this mental model is flawed. The browser isn’t really a painter; it’s a constraint solver.\n\nEvery time you load a page, you enter a high-speed negotiation. You provide the rules (HTML & CSS), and the browser calculates the geometry. When you give it all the math upfront, the result feels magical: a stable, buttery-smooth experience.\n\nBut when we force the browser to recalculate that geometry mid-stream — because an image loaded late, a scrollbar popped in, or a font swapped — we break the spell.\n\nWe know this phenomenon as “Cumulative Layout Shift” (CLS), but really, it’s just jank. And jank doesn’t happen by accident. It happens because we surprised the browser.\n\nTo fix this, we need to stop fighting the rendering engine and start orchestrating it. But first, seeing is believing. Let’s look at exactly what it looks like when we get it wrong.\n\nA “Hostile” Web Site\nI call what we’re doing in the demo below “hostile” because the code is indifferent to the browser’s needs. It treats the rendering engine like a bucket we can dump data into whenever it arrives.\n\nIn the code below, you will see four distinct “surprises” that break the user experience:\n\nThe Sticky Header Collision: When you click “Jump to Section 2,” the browser scrolls correctly to the top of the element, but the title gets buried behind the fixed header.\nPopcorn Loading: The text and images load independently. The layout jumps once for the text, and again for the image.\nThe Image Shift: The image isn’t reserved space. It pushes the text down when it finally arrives.\nThe Scrollbar Shift: When the content grows long enough, a physical scrollbar pops in (on Windows/Linux), shifting the entire UI to the left.\n\n\nInstead of firing three separate state updates (three separate reflows), we wait for the entire “scene” to be ready. We trade a few milliseconds of “First Paint” for a UI that arrives fully formed.\n\n\n// Don't just fetch. Orchestrate.\nasync function loadScene() {\n  // Wait for critical actors to be ready\n  const results = await Promise.all([\n    fetch('/api/text'),\n    fetch('/api/image')\n  ]);\n\n  // Update the state ONCE. \n  // One reflow. One paint.\n  setFullScene(results);\n}\n JavaScript \nPhase 4: The “Stable” Application\nHere is the exact same application, but negotiated correctly.\n\nNotice how “calm” the loading feels. The layout never jumps. The scroll lands exactly where you expect. It feels like a native application because we gave the browser the constraints it needed before painting.\n\n",
       "imgUrl": "https://i0.wp.com/frontendmasters.com/blog/wp-content/uploads/2026/02/party.jpg?resize=1024%2C619&ssl=1",
       "category": "Coding",
-      "createdAt": 1771158155582,
-      "user": "john@gmail.com",
-      "comments": [
-        {
-          "id": "c1",
-          "name": "John Carter",
-          "commentText": "AI is transforming industries rapidly!",
-          "createdAt": "2026-02-10T10:15:00.000Z"
-        },
-        {
-          "id": "c2",
-          "name": "Sophia Lee",
-          "commentText": "Great insights about machine learning trends.",
-          "createdAt": "2026-02-11T12:30:00.000Z"
-        }
-      ]
+      "id": "6d50"
     },
     {
       "id": "1af9",

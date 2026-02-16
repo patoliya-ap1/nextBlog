@@ -1,4 +1,3 @@
-
 import DashboardChart from "../components/DashboardChart";
 import DashboardPanel from "../components/DashboardPanel";
 
@@ -7,7 +6,7 @@ const Dashboard = () => {
     <div>
       <h2>Dashboard</h2>
       <DashboardChart user={"john@gmail.com"} />
-     <DashboardPanel />
+      <DashboardPanel />
     </div>
   );
 };

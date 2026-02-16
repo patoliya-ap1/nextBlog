@@ -18,20 +18,16 @@ import { toast } from "react-toastify";
 import React from "react";
 
 export default function BlogCard({ id, title, body, imgUrl }: CardInfo) {
-
-
   const [mounted, setMounted] = React.useState(false);
 
-React.useEffect(() => {
-  setMounted(true);
-}, []);
-
+  React.useEffect(() => {
+    setMounted(true);
+  }, []);
 
   const router = useRouter();
   const pathname = usePathname();
 
   // sahre
-
 
   const handleShare = async () => {
     const shareData = {
@@ -41,20 +37,16 @@ React.useEffect(() => {
     };
 
     try {
-   
       if (navigator.share) {
         await navigator.share(shareData);
       } else {
-    
         await navigator.clipboard.writeText(shareData.url);
-        toast.success("Link Copied Successfully")
+        toast.success("Link Copied Successfully");
       }
     } catch (error) {
       console.error("Share failed:", error);
     }
   };
-
-
 
   const deletePost = async (postId: string) => {
     const response = await fetch(
@@ -130,7 +122,7 @@ React.useEffect(() => {
 
               <div>
                 <IconButton aria-label="share" onClick={handleShare}>
-                  <ShareIcon  />
+                  <ShareIcon />
                 </IconButton>
               </div>
             </div>
